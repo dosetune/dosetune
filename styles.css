@@ -1,0 +1,1327 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: normal; /* Ensures the font appears normal and not bold */
+}
+
+
+.container {
+    width: 85%;
+    margin: auto;
+    overflow: hidden;
+}
+header {
+    background: #fff;
+    color: #000000;
+    padding-top: 0px;
+    padding-bottom: 8px;
+    border-bottom: rgba(116, 68, 149, 255) 3px solid;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+header .container {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Mobile Menu: Initially hidden */
+header nav ul {
+    display: none;
+    width: 100%;
+    text-align: left;  /* Align menu items to the left */
+    margin-top: 20px;
+    padding-left: 0; /* Remove default padding */
+}
+
+/* Active Class for Menu */
+header nav ul.active {
+    display: flex;
+    flex-direction: row;  /* Stack items vertically when expanded */
+    justify-content: flex-start; /* Align items to the left */
+    margin-top: 1%;
+}
+
+/* Style for each list item */
+header li {
+    display: block;
+    padding: 10px 20px; /* Adjust padding for better spacing */
+    margin-top: 0;
+}
+
+/* Logo Styling */
+.logo {
+    height: auto;
+    width: 70px;
+    margin-left: 1%;
+}
+
+header .order-now {
+    background: rgba(116, 68, 149, 255);
+    color: #f8f9fa;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+header .order-now:hover {
+    background: rgba(86, 58, 129, 255);
+}
+
+header .logout{
+    background: rgba(116, 68, 149, 255);
+    color: #f8f9fa;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    margin-left: -10%;
+}
+/* Example of the next component */
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Initially hide the hamburger */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #000;
+    transition: all 0.3s ease;
+}
+
+/* Cross Icon when Hamburger is active */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 7px;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -7px;
+}
+
+/* Media Query for Mobile View */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide the order-now button on mobile */
+    .order-now {
+        display: none;
+    }
+
+    /* When the menu is active, show it vertically */
+    header nav ul {
+        display: none;
+        flex-direction: column; /* Stack items vertically by default */
+    }
+
+    header nav ul.active {
+        display: flex;
+        flex-direction: column; /* Arrange items vertically */
+        justify-content: flex-start; /* Align items to the left */
+        margin-top: 1%;
+    }
+}
+
+/* Desktop View (Above 768px) */
+@media (min-width: 769px) {
+    header nav ul {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    /* Hide hamburger on desktop */
+    .hamburger {
+        display: none;
+    }
+
+    /* Display order-now button on desktop */
+    .order-now {
+        display: inline-block;
+    }
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 16px;
+    font-weight: 450;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Floating Logos Styles */
+.floating-logos {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    z-index: 1000;
+}
+
+.floating-logos a {
+    display: block;
+    margin-bottom: 20px; /* Space between the two logos */
+    width: 50px; /* Circle width */
+    height: 50px; /* Circle height */
+    border-radius: 50%; /* Make the logos circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25d366; /* Green background for WhatsApp logo */
+}
+
+.floating-logos .chat-logo {
+    background-color: rgba(116, 68, 149, 255); /* Custom color for Chat logo */
+    color: #f4f4f4;
+}
+
+.floating-logos svg {
+    width: 30px; /* Size of the logo inside the circle */
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.floating-logos .whatsapp-logo svg {
+    fill: white; /* White color for the logos */
+}
+
+.floating-logos a:hover svg {
+    transform: scale(1.1); /* Scale effect on hover */
+}
+
+
+.hero {
+    background: rgba(116, 68, 149, 255);
+    color: #fff;
+    height: 80vh;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: -16%;
+}
+
+.hero .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text {
+    flex: 1;
+    margin-right: 20px;
+    text-align: left;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+}
+
+.hero-image img {
+    border-radius: 50%;
+    width: 70%;
+    height: auto;
+    max-width: 80%; /* Make image scale down on mobile */
+}
+
+
+.hero h1 {
+    margin-top: 15%;
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.hero h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    display: inline-flex;
+    align-items: center; /* Aligns the text and icon vertically */
+    background: #fff;
+    color: rgba(116, 68, 149, 255);
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 1%;
+}
+
+.hero .btn svg {
+    margin-left: 8px; /* Adds some space between the text and the arrow */
+}
+
+.hero .btn:hover {
+    background: rgba(86, 58, 129, 255);
+    color: #fff;
+}
+
+.services {
+    padding: 50px 0;
+    background: #e9ecef;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap onto new lines */
+    justify-content: center; /* Center the items */
+}
+
+.services h2 {
+    margin-bottom: 10px;
+    font-size: 36px;
+    padding-top: 10%;
+    width: 100%; /* Ensure heading takes the full width */
+}
+
+.service-item {
+    display: inline-flex;
+    flex-direction: column;
+    width: 29%;
+    margin: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 250px; /* Set a minimum height */
+    flex-grow: 1; /* Allow the service items to stretch to equal height */
+    word-wrap: break-word; /* Ensure long text wraps within the block */
+}
+
+/* Ensure items are properly spaced and aligned */
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-item .icon {
+    background-color: rgba(116, 68, 149, 255);
+    color: white;
+    font-size: 30px;
+    padding: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    margin: 0 auto;
+}
+
+.service-item h3 {
+    margin: 20px 0;
+    font-size: 24px;
+    color: rgba(116, 68, 149, 255);
+}
+
+.service-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Media Query for mobile responsiveness */
+@media (max-width: 768px) {
+    .services h2{
+        padding-top: 15%;
+    }
+    .service-item {
+        width: 50%; /* Adjust to 45% for mobile, two items per row */
+    }
+
+    .hero .btn {
+        margin: 4%;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        width: 100%; /* One item per row for very small screens */
+    }
+}
+
+
+.about {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+}
+
+.about .container {
+    width: 80%; /* Width adjusted for larger screens */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    color: rgba(116, 68, 149, 255);
+    margin-bottom: 40px;
+}
+
+.about-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px; /* Increased margin to create more gap between blocks */
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 70%; /* Width adjusted */
+    text-align: left;
+    margin: 20px auto; /* Added margin to create gap between blocks */
+}
+
+.about-block .icon {
+    background-color: rgba(116, 68, 149, 255);
+    color: white;
+    font-size: 40px; /* Increased icon size */
+    padding: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px; /* Fixed size of the icon */
+    height: 70px; /* Fixed size of the icon */
+    margin-right: 20px;
+}
+
+.about-block .icon svg {
+    width: 40px; /* Fixed size for the SVG */
+    height: 40px; /* Fixed size for the SVG */
+    stroke: rgb(255, 255, 255);
+}
+
+.about-block p {
+    font-size: 20px;
+    color: #333;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* Hover Effect */
+.about-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsive CSS */
+@media (max-width: 768px) {
+    .about .container {
+        width: 90%; /* Adjust container width for smaller screens */
+    }
+
+    .about-block {
+        flex-direction: column;
+        width: 90%; /* Adjust block width for smaller screens */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .about-block .icon {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Add bottom margin for spacing */
+    }
+
+    .about-block p {
+        max-width: 100%; /* Adjust text width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .about h2 {
+        font-size: 2rem; /* Adjust heading size for very small screens */
+        padding-top: 10%;
+    }
+
+    .about-block .icon {
+        width: 60px; /* Adjust icon size for very small screens */
+        height: 60px; /* Adjust icon size for very small screens */
+    }
+
+    .about-block .icon svg {
+        width: 30px; /* Adjust SVG size for very small screens */
+        height: 30px; /* Adjust SVG size for very small screens */
+    }
+
+    .about-block p {
+        font-size: 18px; /* Adjust text size for very small screens */
+    }
+}
+
+/* Base Styles for Contact Section */
+
+.contact {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+}
+
+.contact .container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    color: rgba(116, 68, 149, 255);
+    margin-bottom: 20px;
+}
+
+.contact h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+/* Form Box Styles */
+.contact form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact .form-group {
+    margin-bottom: 20px;
+}
+
+.contact .form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.contact .form-group input,
+.contact .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.contact .form-group input:focus,
+.contact .form-group textarea:focus {
+    outline: none;
+    border-color: rgba(116, 68, 149, 255);
+    box-shadow: 0 0 5px rgba(116, 68, 149, 255, 0.5);
+}
+
+/* Centering the Button */
+.contact form .btn-wrapper {
+    text-align: center;
+    margin-top: 20px; /* Optional: Adds space above the button */
+    color: rgba(116, 68, 149, 255);
+}
+
+.contact .btn {
+    background-color: rgba(116, 68, 149, 255);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    width: 100%;
+}
+
+.contact .btn .icon {
+    margin-right: 8px; /* Space between icon and text */
+    width: 24px;
+    height: 24px;
+
+}
+
+.contact .btn:hover {
+    background-color: rgba(116, 68, 149, 0.8);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .contact .container {
+        width: 90%;
+    }
+
+    .contact h2 {
+        font-size: 2rem;
+        padding-top: 10%;
+    }
+
+    .contact h3 {
+        font-size: 1.25rem;
+    }
+
+    .contact p {
+        font-size: 0.9rem;
+    }
+
+    .contact form {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact .container {
+        width: 95%;
+    }
+
+    .contact h2 {
+        font-size: 1.75rem;
+    }
+
+    .contact h3 {
+        font-size: 1rem;
+    }
+
+    .contact p {
+        font-size: 0.85rem;
+    }
+
+    .contact .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .contact .form-group input,
+    .contact .form-group textarea {
+        font-size: 0.9rem;
+    }
+
+    .contact .btn {
+        font-size: 0.9rem;
+    }
+}
+
+.buyprod {
+    text-align: center;
+    margin-top: 2%;
+    color: rgba(116, 68, 149, 255);
+}
+
+/* Slider Code */ 
+/* Styles for the first slider */
+.slider-container {
+    position: relative;
+    width: 40%;
+    max-width: 700px;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    color: #000;
+    margin-top: 4%;
+    margin: 2%;
+    margin-left: 5%;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+  
+  .slide {
+    min-width: 100%; /* Each slide takes up the full width */
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center-align items horizontally */
+    justify-content: space-between;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .slide img {
+    max-width: 20%; /* Same image size for both sliders */
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .slide button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+  }
+  
+  /* Button Styles for First Slider */
+  .slider-container .next, .slider-container .prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(116, 68, 149, 255); /* Theme color */
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10; /* Ensure buttons are above the slider */
+    height: 60px; /* Adjust height for a more prominent circular button */
+    width: 60px; /* Adjust width to make button circular */
+    border-radius: 50%; /* Makes button circular */
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center; /* Center content (icon) inside the button */
+    align-items: center; /* Vertically center content */
+  }
+  
+  .slider-container .next {
+    right: 10px;
+  }
+  
+  .slider-container .prev {
+    left: 10px;
+  }
+  
+  .prev svg, .next svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(116, 68, 149, 0.8); /* Darker shade on hover */
+  }
+  
+  /* Responsive Design for First Slider */
+  @media (max-width: 768px) {
+    .slider-container {
+      width: 100%; /* Full width for mobile screens */
+      margin-left: 0%;
+      display: flex;
+      margin-top: 20px;
+    }
+  
+    .slide {
+      min-width: 100%; /* Ensure only one slide is shown at a time */
+    }
+  
+    .slide h3 {
+      word-wrap: break-word; /* Ensure long words wrap to the next line */
+      overflow-wrap: break-word; /* Ensure long words wrap to the next line */
+      white-space: normal;
+    }
+  
+    .slider-container .next, .slider-container .prev {
+      height: 50px;
+      width: 50px; /* Smaller circular buttons on mobile */
+      position: relative;
+      margin-top: 10px;
+      margin-bottom: 0;
+      font-size: 1.5rem;
+    }
+  
+    .prev svg, .next svg {
+      width: 25px; /* Adjust icon size for mobile */
+      height: 25px;
+    }
+  }
+  
+  /* Styles for the second slider (adjusted to match first slider) */
+  .slider2 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+  
+  .slide2 {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .slide2 img {
+    max-width: 20%; /* Matching image size to the first slider */
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .slider-container .next, .slider-container .prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(116, 68, 149, 255); /* Theme color */
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10; /* Ensure buttons are above the slider */
+    height: 60px; /* Adjust height for a more prominent circular button */
+    width: 60px; /* Adjust width to make button circular */
+    border-radius: 50%; /* Makes button circular */
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center; /* Center content (icon) inside the button */
+    align-items: center; /* Vertically center content */
+  }
+  
+  .slider-container .next {
+    right: 10px;
+  }
+  
+  .slider-container .prev {
+    left: 10px;
+  }
+  
+  .prev svg, .next svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(116, 68, 149, 0.8); /* Darker shade on hover */
+  }
+  
+  /* Responsive Design for Second Slider */
+  @media (max-width: 768px) {
+    .slider-container {
+      width: 100%; /* Full width for mobile screens */
+      margin-left: 0%;
+    }
+  
+    .slide2 {
+      min-width: 100%; /* Ensure only one slide is shown at a time */
+    }
+  
+    .slider-container .next, .slider-container .prev {
+      height: 50px;
+      width: 50px; /* Smaller circular buttons on mobile */
+      top: 80%;
+    }
+  
+    .prev svg, .next svg {
+      width: 25px; /* Adjust icon size for mobile */
+      height: 25px;
+    }
+  }
+  
+/* footer */ 
+
+footer {
+    background: rgb(53, 0, 78);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+footer .footer-left,
+footer .footer-right {
+    text-align: center;
+    font-size: 95%;
+}
+
+footer .footer-left {
+    text-align: left;
+
+}
+
+footer .footer-right img {
+    margin: 0 10px;
+    width: 24px;
+    height: 24px;
+}
+
+footer .footer-bottom {
+    padding: 15px 5px;
+    text-align: center;
+}
+
+.footer-right {
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.footer-right p {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.footer-right a {
+    display: inline-block;
+    margin: 0 15px; /* Increased margin for better spacing */
+    transition: transform 0.3s;
+}
+
+.footer-right a:hover {
+    transform: scale(1.1);
+}
+
+.footer-right svg {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    transition: stroke 0.3s;
+}
+
+.footer-right a:hover svg {
+    stroke: #ffffff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .footer-right {
+        justify-content: space-evenly;
+        width: 100%;
+        margin-bottom: 15px; /* Added bottom margin for space between icons and footer-bottom */
+        display: flex; /* Using flex to align items */
+        gap: 10px; /* Adjust the gap between icons */
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-right a {
+        display: flex; /* Ensures the SVG stays aligned */
+        margin: 0; /* Remove any margin around the anchor elements */
+    }
+
+    .footer-right svg {
+        width: 24px;
+        height: 24px;
+        margin: 0; /* Remove any margin from SVG itself */
+        align-items: center;
+        display: inline-flex;
+    }
+
+    .footer-bottom {
+        width: 100%;
+        padding: 10px 0;
+        margin-top: -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-right p {
+        text-align: justify;
+    }
+    .footer-bottom {
+        padding: 10px 0;
+    }
+
+    .footer-right a {
+        display: flex;
+        margin: 0;
+    }
+
+    .footer-right svg {
+        display: inline-flex;
+        width: 24px;
+        height: 24px;
+        margin: 0; /* Ensure no extra margin around SVG */
+        align-items: center;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Header */
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+
+    header nav {
+        float: none;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    header .order-now {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    /* Hero section */
+    .hero {
+        height: auto;
+        padding: 50px 20px;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-text {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero h3 {
+        font-size: 20px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    /* Services section */
+    .service-item {
+        width: 100%;
+        margin: 10px 0;
+        height: auto;
+    }
+
+    .service-item h3 {
+        font-size: 22px;
+    }
+
+    /* Contact section */
+    .contact form {
+        width: 90%;
+    }
+
+/* Mobile Landscape Responsiveness */
+@media (max-width: 1024px) {
+    /* Hero Section */
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero h3 {
+        font-size: 22px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero-image img {
+        margin-top: 10%;
+    }
+
+    .contact form {
+        width: 80%;
+    }
+}}
+
+/* Order Page Style */
+
+/* Order Form Styles */
+
+.order-now-container{
+    padding-top: 9%;
+    text-align: center;
+}
+.order-now-container h1{
+    text-align: center;
+}
+.order-form {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+.order-form h2 {
+    font-size: 24px;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
+
+.order-form label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.order-form input,
+.order-form select,
+.order-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.order-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.order-form input[type="submit"] {
+    background-color: rgba(116, 68, 149, 255);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.order-form input[type="submit"]:hover {
+    background-color: rgba(86, 58, 129, 255);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+    .order-now-container{
+        padding-top: 30%;
+        text-align: center;
+    }
+    .order-form {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .order-form h2 {
+        font-size: 22px;
+    }
+
+    .order-form label {
+        font-size: 14px;
+    }
+
+    .order-form input,
+    .order-form select,
+    .order-form textarea {
+        font-size: 14px;
+    }
+
+    .order-form input[type="submit"] {
+        font-size: 16px;
+    }
+}
+
+/* Upload Prescription Styles */
+.upload-prescription-container {
+    background-color: #fff;
+    margin: 10px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    border: 2px dotted #8e44ad; /* Dotted border with the theme color */
+}
+
+.upload-prescription-container h2 {
+    font-size: 24px;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+.upload-area {
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    min-height: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: rgba(116, 68, 149, 255); /* Highlight border on hover */
+}
+
+.upload-area svg {
+    width: 48px;
+    height: 48px;
+}
+
+.upload-area p {
+    margin-top: 10px;
+}
+
+/* Input for file upload (hidden) */
+.upload-input {
+    display: none;
+}
+
+/* Style for uploaded file name */
+.upload-file-name {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .upload-prescription-container {
+        padding: 20px;
+    }
+
+    .upload-area {
+        padding: 30px;
+        font-size: 16px;
+    }
+
+    .upload-area svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .upload-area p {
+        font-size: 14px;
+    }
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 2%;
+    border-radius: 8px;
+    background-color:  rgba(116, 68, 149, 255);
+    color: #fff;
+}
