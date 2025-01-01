@@ -1,0 +1,621 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: normal; /* Ensures the font appears normal and not bold */
+}
+
+
+.container {
+    width: 85%;
+    margin: auto;
+    overflow: hidden;
+}
+header {
+    background: #fff;
+    color: #000000;
+    padding-top: 0px;
+    padding-bottom: 8px;
+    border-bottom: rgba(116, 68, 149, 255) 3px solid;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+header .container {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Mobile Menu: Initially hidden */
+header nav ul {
+    display: none;
+    width: 100%;
+    text-align: left;  /* Align menu items to the left */
+    margin-top: 20px;
+    padding-left: 0; /* Remove default padding */
+}
+
+/* Active Class for Menu */
+header nav ul.active {
+    display: flex;
+    flex-direction: row;  /* Stack items vertically when expanded */
+    justify-content: flex-start; /* Align items to the left */
+    margin-top: 1%;
+}
+
+/* Style for each list item */
+header li {
+    display: block;
+    padding: 10px 20px; /* Adjust padding for better spacing */
+    margin-top: 0;
+}
+
+/* Logo Styling */
+.logo {
+    height: auto;
+    width: 70px;
+    margin-left: 1%;
+}
+
+header .order-now {
+    background: rgba(116, 68, 149, 255);
+    color: #f8f9fa;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+header .order-now:hover {
+    background: rgba(86, 58, 129, 255);
+}
+/* Example of the next component */
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Initially hide the hamburger */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #000;
+    transition: all 0.3s ease;
+}
+
+/* Cross Icon when Hamburger is active */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 7px;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -7px;
+}
+
+/* Media Query for Mobile View */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide the order-now button on mobile */
+    .order-now {
+        display: none;
+    }
+
+    /* When the menu is active, show it vertically */
+    header nav ul {
+        display: none;
+        flex-direction: column; /* Stack items vertically by default */
+    }
+
+    header nav ul.active {
+        display: flex;
+        flex-direction: column; /* Arrange items vertically */
+        justify-content: flex-start; /* Align items to the left */
+        margin-top: 1%;
+    }
+}
+
+/* Desktop View (Above 768px) */
+@media (min-width: 769px) {
+    header nav ul {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    /* Hide hamburger on desktop */
+    .hamburger {
+        display: none;
+    }
+
+    /* Display order-now button on desktop */
+    .order-now {
+        display: inline-block;
+    }
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 16px;
+    font-weight: 450;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Table Styling */
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+th {
+    background-color: rgba(116, 68, 149, 255);
+    color: #fff;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: rgba(86, 58, 129, 0.1);
+    cursor: pointer;
+}
+
+/* Responsive Table Wrapper */
+.table-wrapper {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    margin-bottom: 1rem; /* Add some space at the bottom */
+}
+
+/* Responsive Table Styling */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+        width: 100%; /* Ensure the table doesn't exceed container width */
+    }
+
+    th, td {
+        padding: 0.75rem;
+    }
+}
+
+
+/* Style for the SVG icon */
+.size-6 {
+    width: 44px; /* Adjust the width of the icon */
+    height: 24px; /* Adjust the height of the icon */
+    stroke: #000000; /* Default stroke color (black) */
+    fill: none; /* Ensure the icon is not filled */
+    transition: transform 0.2s ease-in-out; /* Add a transition effect for hover */
+}
+
+.size-6:hover {
+    transform: scale(1.2); /* Make the icon bigger on hover */
+    stroke: #ff5733; /* Change stroke color on hover (e.g., to orange) */
+}
+
+.size-6:active {
+    transform: scale(0.9); /* Slightly shrink the icon when clicked */
+}
+
+
+
+
+/* footer */ 
+
+footer {
+    background: rgb(53, 0, 78);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+footer .footer-left,
+footer .footer-right {
+    text-align: center;
+    font-size: 95%;
+}
+
+footer .footer-left {
+    text-align: left;
+}
+
+footer .footer-right img {
+    margin: 0 10px;
+    width: 24px;
+    height: 24px;
+}
+
+footer .footer-bottom {
+    padding: 15px 5px;
+    text-align: center;
+}
+
+.footer-right {
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.footer-right p {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.footer-right a {
+    display: inline-block;
+    margin: 0 15px; /* Increased margin for better spacing */
+    transition: transform 0.3s;
+}
+
+.footer-right a:hover {
+    transform: scale(1.1);
+}
+
+.footer-right svg {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    transition: stroke 0.3s;
+}
+
+.footer-right a:hover svg {
+    stroke: #ffffff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .footer-right {
+        justify-content: space-evenly;
+        width: 100%;
+        margin-bottom: 15px; /* Added bottom margin for space between icons and footer-bottom */
+        display: flex; /* Using flex to align items */
+        gap: 10px; /* Adjust the gap between icons */
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-right a {
+        display: flex; /* Ensures the SVG stays aligned */
+        margin: 0; /* Remove any margin around the anchor elements */
+    }
+
+    .footer-right svg {
+        width: 24px;
+        height: 24px;
+        margin: 0; /* Remove any margin from SVG itself */
+        align-items: center;
+        display: inline-flex;
+    }
+
+    .footer-bottom {
+        width: 100%;
+        padding: 10px 0;
+        margin-top: -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-right p {
+        text-align: justify;
+    }
+    .footer-bottom {
+        padding: 10px 0;
+    }
+
+    .footer-right a {
+        display: flex;
+        margin: 0;
+    }
+
+    .footer-right svg {
+        display: inline-flex;
+        width: 24px;
+        height: 24px;
+        margin: 0; /* Ensure no extra margin around SVG */
+        align-items: center;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Header */
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    header .logo {
+        margin-left: 0;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul li {
+        padding: 10px 0;
+    }
+
+    header .hamburger {
+        right: 10px;
+    }
+
+    /* Footer */
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .footer-left,
+    footer .footer-right {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    footer .footer-right a {
+        margin: 0 10px;
+    }
+}
+
+
+/* Upload Prescription Styles */
+.upload-prescription {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f8f9fa;
+}
+
+.upload-prescription .container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.upload-prescription h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.upload-prescription .form-group {
+    margin-bottom: 1rem;
+}
+
+.upload-prescription .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.upload-prescription .form-group input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.upload-prescription .btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(116, 68, 149, 255);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.upload-prescription .btn:hover {
+    background-color: rgba(86, 58, 129, 255);
+}
+
+/* Responsive Styles for Upload Prescription */
+@media (max-width: 768px) {
+    .upload-prescription .container {
+        padding: 1rem;
+    }
+
+    .upload-prescription h2 {
+        font-size: 1.2rem;
+    }
+
+    .upload-prescription .form-group input[type="file"] {
+        padding: 0.5rem;
+    }
+
+    .upload-prescription .btn {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Contact Form Styles */
+.contact {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.contact h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.contact .form-group {
+    margin-bottom: 1rem;
+}
+
+.contact .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.contact .form-group input,
+.contact .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.contact .form-group textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.contact .btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(116, 68, 149, 255);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.contact .btn:hover {
+    background-color: rgba(86, 58, 129, 255);
+}
+
+/* Responsive Styles for Contact Form */
+@media (max-width: 768px) {
+    .contact {
+        padding: 1rem;
+    }
+
+    .contact h2 {
+        font-size: 1.2rem;
+    }
+
+    .contact .form-group input,
+    .contact .form-group textarea {
+        padding: 0.5rem;
+    }
+
+    .contact .btn {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}

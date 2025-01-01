@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Admin container */
+.admin-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Style */
+h2 {
+    text-align: center;
+    color: rgba(116, 68, 149, 255); /* Using theme color for title */
+    margin-bottom: 20px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Header styling */
+th {
+    background-color: rgba(116, 68, 149, 0.1); /* Using theme color for table header */
+    font-weight: bold;
+    color: rgba(116, 68, 149, 255); /* Theme color for text in header */
+}
+
+/* Zebra striping */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Action SVG styling */
+td svg {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+td svg:hover {
+    transform: scale(1.2);
+}
+
+/* No orders message */
+p {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #888;
+}
+
+/* Add scrollable wrapper for the table */
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 768px) {
+    /* Make the table scrollable on smaller screens */
+    table {
+        width: 100%;
+        min-width: 600px; /* Ensure that the table has enough width to scroll */
+    }
+
+    th, td {
+        font-size: 12px; /* Adjust font size for mobile */
+        padding: 8px;    /* Adjust padding for mobile */
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    td svg {
+        width: 18px;
+        height: 18px;
+    }
+}
