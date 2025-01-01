@@ -1,0 +1,633 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: normal; /* Ensures the font appears normal and not bold */
+}
+
+
+.container {
+    width: 85%;
+    margin: auto;
+    overflow: hidden;
+}
+header {
+    background: #fff;
+    color: #000000;
+    padding-top: 0px;
+    padding-bottom: 8px;
+    border-bottom: rgba(116, 68, 149, 255) 3px solid;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+header .container {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Mobile Menu: Initially hidden */
+header nav ul {
+    display: none;
+    width: 100%;
+    text-align: left;  /* Align menu items to the left */
+    margin-top: 20px;
+    padding-left: 0; /* Remove default padding */
+}
+
+/* Active Class for Menu */
+header nav ul.active {
+    display: flex;
+    flex-direction: row;  /* Stack items vertically when expanded */
+    justify-content: flex-start; /* Align items to the left */
+    margin-top: 1%;
+}
+
+/* Style for each list item */
+header li {
+    display: block;
+    padding: 10px 20px; /* Adjust padding for better spacing */
+    margin-top: 0;
+}
+
+/* Logo Styling */
+.logo {
+    height: auto;
+    width: 70px;
+    margin-left: 1%;
+}
+
+header .order-now {
+    background: rgba(116, 68, 149, 255);
+    color: #f8f9fa;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+header .order-now:hover {
+    background: rgba(86, 58, 129, 255);
+}
+/* Example of the next component */
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Initially hide the hamburger */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #000;
+    transition: all 0.3s ease;
+}
+
+/* Cross Icon when Hamburger is active */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 7px;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -7px;
+}
+
+/* Media Query for Mobile View */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide the order-now button on mobile */
+    .order-now {
+        display: none;
+    }
+
+    /* When the menu is active, show it vertically */
+    header nav ul {
+        display: none;
+        flex-direction: column; /* Stack items vertically by default */
+    }
+
+    header nav ul.active {
+        display: flex;
+        flex-direction: column; /* Arrange items vertically */
+        justify-content: flex-start; /* Align items to the left */
+        margin-top: 1%;
+    }
+}
+
+/* Desktop View (Above 768px) */
+@media (min-width: 769px) {
+    header nav ul {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    /* Hide hamburger on desktop */
+    .hamburger {
+        display: none;
+    }
+
+    /* Display order-now button on desktop */
+    .order-now {
+        display: inline-block;
+    }
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 16px;
+    font-weight: 450;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for the login and signup form section */
+.form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Set height to auto to allow margin control */
+    background-color: #f4f4f4;
+    margin-bottom: 20px; /* Adjust bottom margin */
+    padding: 40px 0; /* Optional: Adds padding inside the section */
+    padding-top: 6%;
+}
+
+
+/* Styling for the form container */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Common styling for the form boxes */
+.form-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 10px;
+    margin-top: 10%;
+}
+
+/* Styling for the form headings */
+.form-box h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #744493; /* Use your theme color */
+    text-align: center;
+}
+
+/* Styling for form inputs */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.dont {
+    margin-top: 5%;
+    font-weight: bold;
+}
+
+/* General styles for form group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333; /* Adjust for readability */
+    margin-bottom: 8px;
+}
+
+/* Dropdown styling */
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    color: #333; /* Text color */
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover and focus effects */
+.form-group select:hover {
+    border-color: #007bff; /* Brand primary color */
+    background-color: #ffffff;
+}
+
+.form-group select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Placeholder (first option) styling */
+.form-group select option[value=""] {
+    color: #999; /* Grey for unselected state */
+}
+
+.error-message {
+    background-color: #f8d7da;  /* Light red background */
+    color: #721c24;  /* Dark red text */
+    padding: 15px;  /* Padding around the message */
+    border: 1px solid #f5c6cb;  /* Border color matching the background */
+    border-radius: 5px;  /* Rounded corners */
+    margin-top: 50px;
+    font-weight: bold;  /* Make the text bold */
+    text-align: center;  /* Center the message */
+    font-size: 16px;  /* Font size for the message */
+}
+
+/* Optional: Add a close button to dismiss the error message */
+.error-message .close-btn {
+    background: none;
+    border: none;
+    color: #721c24;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.error-message .close-btn:hover {
+    color: #f5c6cb;
+}
+
+.success-message {
+    background-color: #d4edda;  /* Light green background */
+    color: #155724;  /* Dark green text */
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    padding: 5%;
+    margin-top: 10%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.forgot-password a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .form-group select {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    .form-section {
+        padding-top: 20%;
+    }
+    .form-box {
+        margin-top: 10%;
+    }
+    .error-message {
+        margin-top: 30%;
+    }
+
+}
+
+/* Style for the error message */
+
+
+
+/* Styling for the buttons */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #744493; /* Use your theme color */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #5e3370; /* Darker shade of the theme color */
+}
+
+/* Add margin between the two buttons */
+#send-otp {
+    margin-bottom: 15px; /* Adds space below the 'Send OTP' button */
+}
+
+/* Optional: You can also add margin to the submit button for uniform spacing */
+button[type="submit"] {
+    margin-top: 10px; /* Adds space above the 'Sign Up' button */
+}
+
+
+/* Styling for the links at the bottom */
+form p {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+form p a {
+    color: #744493;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+form p a:hover {
+    text-decoration: underline;
+}
+
+/* Hiding the signup form by default */
+.signup-box {
+    display: none;
+}
+
+/* Show the signup box when toggled */
+.show-signup .login-box {
+    display: none;
+}
+
+.show-signup .signup-box {
+    display: block;
+}
+
+
+
+/* footer */ 
+
+footer {
+    background: rgb(53, 0, 78);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+footer .footer-left,
+footer .footer-right {
+    text-align: center;
+    font-size: 95%;
+}
+
+footer .footer-left {
+    text-align: left;
+}
+
+footer .footer-right img {
+    margin: 0 10px;
+    width: 24px;
+    height: 24px;
+}
+
+footer .footer-bottom {
+    padding: 15px 5px;
+    text-align: center;
+}
+
+.footer-right {
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.footer-right p {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.footer-right a {
+    display: inline-block;
+    margin: 0 15px; /* Increased margin for better spacing */
+    transition: transform 0.3s;
+}
+
+.footer-right a:hover {
+    transform: scale(1.1);
+}
+
+.footer-right svg {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    transition: stroke 0.3s;
+}
+
+.footer-right a:hover svg {
+    stroke: #ffffff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .footer-right {
+        justify-content: space-evenly;
+        width: 100%;
+        margin-bottom: 15px; /* Added bottom margin for space between icons and footer-bottom */
+        display: flex; /* Using flex to align items */
+        gap: 10px; /* Adjust the gap between icons */
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-right a {
+        display: flex; /* Ensures the SVG stays aligned */
+        margin: 0; /* Remove any margin around the anchor elements */
+    }
+
+    .footer-right svg {
+        width: 24px;
+        height: 24px;
+        margin: 0; /* Remove any margin from SVG itself */
+        align-items: center;
+        display: inline-flex;
+    }
+
+    .footer-bottom {
+        width: 100%;
+        padding: 10px 0;
+        margin-top: -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-right p {
+        text-align: justify;
+    }
+    .footer-bottom {
+        padding: 10px 0;
+    }
+
+    .footer-right a {
+        display: flex;
+        margin: 0;
+    }
+
+    .footer-right svg {
+        display: inline-flex;
+        width: 24px;
+        height: 24px;
+        margin: 0; /* Ensure no extra margin around SVG */
+        align-items: center;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Header */
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    header .logo {
+        margin-left: 0;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul li {
+        padding: 10px 0;
+    }
+
+    header .hamburger {
+        right: 10px;
+    }
+
+    /* Footer */
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .footer-left,
+    footer .footer-right {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    footer .footer-right a {
+        margin: 0 10px;
+    }
+}
